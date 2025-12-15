@@ -23,7 +23,7 @@ class TTSUtilities:
         if json_files is None or len(json_files) == 0:
             json_files = TTSUtilities.get_jsons(extension=True)
 
-        # check constructed json file
+        # check constructed JSON file
         json_file_path = model_file + ".json"
         if os.path.basename(json_file_path) in json_files:
             if os.path.exists(json_file_path):
@@ -42,7 +42,7 @@ class TTSUtilities:
                     if file.endswith('.onnx'):
                         model_file = os.path.join(root, file) # onnx
                         model_name = os.path.basename(model_file).replace('.onnx', '')
-                        json_file = TTSUtilities.match_json(model_file, json_files)
+                        json_file = TTSUtilities.match_json(str(model_file), json_files)
 
                         models_info[model_name] = {
                             "onnx": model_file,
