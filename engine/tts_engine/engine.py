@@ -1,22 +1,23 @@
 import os
 import json
-from piper import PiperVoice, SynthesisConfig
 import wave
+from piper import PiperVoice, SynthesisConfig
 from .utilities import TTSUtilities
-
 from engine import Logger
-log = Logger.get_logger(__name__)
 
 os.system('cls' if os.name == 'nt' else 'clear')
 current_script_path = os.path.dirname(os.path.realpath(__file__))
 
+log = Logger.get_logger(__name__)
+
+
 class EngineTTS:
-    def __init__(self):
+    def __init__(self, models_folder: str):
         # engine directory
         self.engine_directory = os.path.join(current_script_path, '..')
 
         # tts models info
-        self.models_info = TTSUtilities.get_models_info()
+        self.models_info = TTSUtilities.get_models_info(path=models_folder)
 
         # outputs
         self.output_tts = os.path.join(self.engine_directory, "outputs", "tts")
@@ -25,6 +26,10 @@ class EngineTTS:
     def synthesize(self, voice: str, text: str, sanitize_text: bool = False, config=None, use_cuda: bool = False) -> str:
         if config is None:
             config = {}
+
+        if voice == "__fallback__":
+            voice = list(self.models_info.keys())[0]
+
         if voice not in self.models_info:
             log.error(f"ERROR: Voice {voice} not found in {list(self.models_info.keys())}. Please check the voice name.")
             return ""
@@ -36,7 +41,7 @@ class EngineTTS:
         if sanitize_text:
             pass
 
-        log.info("Using 'cuda'") if use_cuda else log.info("Using 'cpu'")
+        log.info(f"Using {'cuda' if use_cuda else 'cpu'}")
 
         voice = PiperVoice.load(self.models_info[voice]["onnx"], use_cuda=use_cuda)
         config = TTSUtilities.validate_config(config)
