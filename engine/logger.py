@@ -136,7 +136,7 @@ class Logger:
         )
 
         cls._initialized = True
-        logger.info(f"Star Engine Logger initialized - Level: {level}")
+        logger.info(f"S.T.A.R. Engine Logger Initialized - Level: {level}")
 
     @classmethod
     def get_logger(cls, name: str = None):
