@@ -1,6 +1,4 @@
 import os
-import sys
-import json
 import uuid
 
 os.system('cls' if os.name == 'nt' else 'clear')

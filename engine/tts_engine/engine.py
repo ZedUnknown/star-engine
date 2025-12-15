@@ -1,5 +1,4 @@
 import os
-import sys
 import json
 from piper import PiperVoice, SynthesisConfig
 import wave

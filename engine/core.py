@@ -1,5 +1,4 @@
 import os
-import sys
 import json
 
 from engine import Logger
@@ -19,7 +18,7 @@ class Core:
         self.rvc_tts_voice_map = json.load(open(os.path.join(current_script_path, 'rvc_tts_voice_map.json'), 'r'))
 
 
-    def synthesize(self, rvc_voice, text) -> bin:
+    def get_tts(self, rvc_voice, text) -> str:
         if rvc_voice not in self.rvc_tts_voice_map:
             log.warning(f"WARNING: Voice '{rvc_voice}' not found in `rvc_tts_voice_map`. Proceeding with fallback voice.")
 
@@ -33,8 +32,10 @@ class Core:
             use_cuda=False
         )
 
-        log.info(f"TTS ID: {tts_result}")
+        log.info(f"tts id: {tts_result}")
+
+        return tts_result
 
 if __name__ == '__main__':
     core = Core()
-    core.synthesize('k', 'testing 1 2 3')
+    core.get_tts('k', 'testing 1 2 3')
