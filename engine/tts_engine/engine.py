@@ -5,7 +5,6 @@ from piper import PiperVoice, SynthesisConfig
 from .utilities import TTSUtilities
 from engine import Logger
 
-os.system('cls' if os.name == 'nt' else 'clear')
 current_script_path = os.path.dirname(os.path.realpath(__file__))
 
 log = Logger.get_logger(__name__)
@@ -31,12 +30,12 @@ class EngineTTS:
             voice = list(self.models_info.keys())[0]
 
         if voice not in self.models_info:
-            log.error(f"ERROR: Voice {voice} not found in {list(self.models_info.keys())}. Please check the voice name.")
-            return ""
+            log.warning(f"WARNING: Voice {voice} not found in {list(self.models_info.keys())}. Proceeding with fallback voice.")
+            voice = list(self.models_info.keys())[0]
 
         if text == "":
-            log.error("ERROR: Text is empty. Please provide some text.")
-            return ""
+            log.warning("WARNING: Text is empty.")
+            text = "Testing 1 2 3"
 
         if sanitize_text:
             pass

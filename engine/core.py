@@ -7,7 +7,6 @@ from rvc_engine import EngineRVC
 
 from dotenv import load_dotenv
 
-os.system('cls' if os.name == 'nt' else 'clear')
 current_script_path = os.path.dirname(os.path.realpath(__file__))
 
 log = Logger.get_logger(__name__)
@@ -27,7 +26,7 @@ class Core:
 
         self.rvc_tts_voice_map = CoreUtilities.get_json(os.path.join(current_script_path, 'rvc_tts_voice_map.json'))
 
-    def get_tts(self, rvc_voice, text) -> str:
+    def get_tts(self, rvc_voice, text: str = '') -> str:
         if rvc_voice in self.rvc_tts_voice_map:
             tts_model = list(self.rvc_tts_voice_map[rvc_voice]['tts_model'].keys())[0]
             tts_model_config = self.rvc_tts_voice_map[rvc_voice]['tts_model'][tts_model]
@@ -55,5 +54,6 @@ class Core:
 
 
 if __name__ == '__main__':
+    os.system('cls' if os.name == 'nt' else 'clear')
     core = Core()
-    core.get_tts('k', 'testing 1 2 3')
+    core.get_tts('k')

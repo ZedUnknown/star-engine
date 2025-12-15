@@ -2,7 +2,6 @@ import os
 import uuid
 from engine import Logger
 
-os.system('cls' if os.name == 'nt' else 'clear')
 current_script_path = os.path.dirname(os.path.realpath(__file__))
 
 log = Logger.get_logger(__name__)
@@ -18,7 +17,7 @@ class TTSUtilities:
             if filename.endswith('.json')
         ]
         if not extension:
-            models = [model.replace('.onnx.json', '') for model in models]
+            models = [model.replace('.onnx.json', '').replace('.json', '') for model in models]
         return models if models else []
 
     @staticmethod
@@ -57,6 +56,7 @@ class TTSUtilities:
                         }
         else:
             log.error(f"ERROR: Default model directory does not exist. Please check the path: {path}")
+            raise
 
         return models_info
 

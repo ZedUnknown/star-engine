@@ -2,7 +2,6 @@ import os
 import json
 from engine import Logger
 
-os.system('cls' if os.name == 'nt' else 'clear')
 current_script_path = os.path.dirname(os.path.realpath(__file__))
 
 log = Logger.get_logger(__name__)
