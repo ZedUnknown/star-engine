@@ -1,8 +1,9 @@
 ### User Specific
 
-engine/tts_engine/voices
-engine/rvc_engine/voices
+engine/tts_engine/models
+engine/rvc_engine/models
 
+*.lingma
 *.wav
 
 ### VisualStudioCode template

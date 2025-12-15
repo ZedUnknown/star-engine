@@ -7,16 +7,16 @@ current_script_path = os.path.dirname(os.path.realpath(__file__))
 class TTSUtilities:
 
     @staticmethod
-    def get_jsons(path=os.path.join(current_script_path, 'voices'), extension=False) ->  list:
-        voices = [
+    def get_jsons(path=os.path.join(current_script_path, 'models'), extension=False) ->  list:
+        models = [
             os.path.basename(os.path.join(directory, filename))
             for directory, _, filenames in os.walk(os.path.join(current_script_path, path))
             for filename in filenames
             if filename.endswith('.json')
         ]
         if not extension:
-            voices = [voice.replace('.onnx.json', '') for voice in voices]
-        return voices if voices else []
+            models = [model.replace('.onnx.json', '') for model in models]
+        return models if models else []
 
     @staticmethod
     def match_json(model_file: str, json_files: list) -> str:
@@ -32,7 +32,7 @@ class TTSUtilities:
         return ""
 
     @staticmethod
-    def get_models_info(path=os.path.join(current_script_path, 'voices')) -> dict:
+    def get_models_info(path=os.path.join(current_script_path, 'models')) -> dict:
         models_info = {}
         if os.path.exists(os.path.join(current_script_path, path)):
             print(f"Model directory found: {path}")
