@@ -3,6 +3,8 @@
 engine/tts_engine/voices
 engine/rvc_engine/voices
 
+*.wav
+
 ### VisualStudioCode template
 .vscode/*
 !.vscode/settings.json
