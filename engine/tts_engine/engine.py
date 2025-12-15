@@ -34,8 +34,7 @@ class EngineTTS:
             voice = list(self.models_info.keys())[0]
 
         if text == "":
-            log.warning("WARNING: Text is empty.")
-            text = "Testing 1 2 3"
+            log.warning("WARNING: Text was empty.")
 
         if sanitize_text:
             pass

@@ -26,7 +26,7 @@ class Core:
 
         self.rvc_tts_voice_map = CoreUtilities.get_json(os.path.join(current_script_path, 'rvc_tts_voice_map.json'))
 
-    def get_tts(self, rvc_voice, text: str = '') -> str:
+    def get_tts(self, rvc_voice, text: str = "") -> str:
         if rvc_voice in self.rvc_tts_voice_map:
             tts_model = list(self.rvc_tts_voice_map[rvc_voice]['tts_model'].keys())[0]
             tts_model_config = self.rvc_tts_voice_map[rvc_voice]['tts_model'][tts_model]
