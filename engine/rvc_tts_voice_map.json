@@ -16,18 +16,5 @@
             }
         },
         "rvc_model": {}
-    },
-
-    "__fallback__": {
-        "tts_model": {
-            "en_US-alan-medium": {
-                "volume": 1.0,
-                "length_scale": 1.5,
-                "noise_scale": 0.667,
-                "noise_w_scale": 0.8,
-                "normalize_audio": false
-            }
-        },
-        "rvc_model": {}
     }
 }
