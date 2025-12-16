@@ -2,6 +2,7 @@
 
 engine/tts_engine/models
 engine/rvc_engine/models
+.pvt
 
 *.lingma
 *.wav
