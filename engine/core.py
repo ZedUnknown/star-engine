@@ -56,4 +56,4 @@ class Core:
 if __name__ == '__main__':
     os.system('cls' if os.name == 'nt' else 'clear')
     core = Core()
-    core.get_tts('k')
+    core.get_tts('k', "A rainbow is a meteorological phenomenon that is caused by reflection, refraction and dispersion of light in water droplets resulting in a spectrum of light appearing in the sky.")

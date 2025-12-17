@@ -6,6 +6,7 @@ engine/rvc_engine/models
 
 *.lingma
 *.wav
+*.mp3
 
 ### VisualStudioCode template
 .vscode/*
