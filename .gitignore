@@ -3,6 +3,7 @@
 engine/tts_engine/models
 engine/rvc_engine/models
 .pvt
+testing.ipynb
 
 *.lingma
 *.wav

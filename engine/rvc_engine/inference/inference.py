@@ -18,3 +18,12 @@ class RVCInference:
     """
     def __init__(self):
         self.config = Config()
+
+
+    def load_embedding(self, embedding_path):
+        """
+        Loads the embedding model for speaker embedding extraction. (default: HuBERT model)
+        """
+        pass
+
+
