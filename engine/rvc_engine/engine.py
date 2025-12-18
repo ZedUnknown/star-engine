@@ -2,10 +2,10 @@ import os
 from .utilities import RVCUtilities
 
 from engine import Logger
-log = Logger.get_logger(__name__)
 
 current_script_path = os.path.dirname(os.path.realpath(__file__))
 
+log = Logger.get_logger(__name__)
 
 class EngineRVC:
     def __init__(self, models_folder: str):
