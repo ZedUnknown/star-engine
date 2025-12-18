@@ -18,3 +18,6 @@ class EngineRVC:
         # outputs
         self.output_rvc = os.path.join(self.engine_directory, "outputs", "rvc")
         os.makedirs(self.output_rvc, exist_ok=True) # ensure output folders exist
+
+    def synthesize(self, **kwargs) -> str:
+        pass

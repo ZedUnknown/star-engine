@@ -9,4 +9,4 @@ from .config import Config
 
 
 # classes which get imported with "from tts_engine import *"
-__all__ = ["EngineRVC", "RVCUtilities", ]
+__all__ = ["EngineRVC", "RVCUtilities", "Config"]
