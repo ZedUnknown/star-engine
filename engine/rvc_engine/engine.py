@@ -20,4 +20,10 @@ class EngineRVC:
         os.makedirs(self.output_rvc, exist_ok=True) # ensure output folders exist
 
     def synthesize(self, **kwargs) -> str:
-        pass
+        if "rvc_voice" in kwargs:
+            print(kwargs["rvc_voice"])
+        if "audio" in kwargs:
+            print(kwargs["audio"])
+            print(os.path.exists(kwargs["audio"]))
+
+        return ''

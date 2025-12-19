@@ -7,6 +7,13 @@ from .utilities import RVCUtilities
 # config
 from .config import Config
 
+# loaders
+from .loaders import EmbedderLoader
 
 # classes which get imported with "from tts_engine import *"
-__all__ = ["EngineRVC", "RVCUtilities", "Config"]
+__all__ = [
+    "EngineRVC",
+    "RVCUtilities",
+    "Config",
+    "EmbedderLoader"
+]

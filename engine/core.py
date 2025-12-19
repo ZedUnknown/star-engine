@@ -50,10 +50,13 @@ class Core:
         log.info(f"tts id: {tts_result}")
         return tts_result
 
-    # def get_rvc(self, rvc_voice, audio) -> str:
+    # keeping simple just for now
+    def get_rvc(self, rvc_voice, audio) -> str:
+        self.rvc_engine.synthesize(rvc_voice=rvc_voice, audio=audio)
 
 
 if __name__ == '__main__':
     os.system('cls' if os.name == 'nt' else 'clear')
     core = Core()
-    core.get_tts('k', "A rainbow is a meteorological phenomenon that is caused by reflection, refraction and dispersion of light in water droplets resulting in a spectrum of light appearing in the sky.")
+    # core.get_tts('k', "A rainbow is a meteorological phenomenon that is caused by reflection, refraction and dispersion of light in water droplets resulting in a spectrum of light appearing in the sky.")
+    core.get_rvc("k", "./rvc_engine/.playground/sample-short_mono.mp3")

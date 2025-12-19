@@ -9,6 +9,7 @@ from engine import Logger
 current_script_path = os.path.dirname(os.path.realpath(__file__))
 
 from engine.rvc_engine import Config
+from engine import root
 
 log = Logger.get_logger(__name__)
 
@@ -19,11 +20,11 @@ class RVCInference:
     def __init__(self):
         self.config = Config()
 
-
-    def load_embedding(self, embedding_path):
+    @staticmethod
+    def load_embedding(self, embedding_model):
         """
         Loads the embedding model for speaker embedding extraction. (default: HuBERT model)
         """
-        pass
 
+        print(root)
 
